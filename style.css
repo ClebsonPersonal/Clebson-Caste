@@ -12,7 +12,8 @@
     --border-color: rgba(185, 180, 118, 0.35); /* Bordas douradas translúcidas */
 }
 
-* {
+/* --- AJUSTE 1: Correção do seletor global --- */
+*, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -27,7 +28,7 @@ body {
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal */
 }
 
 .container {
@@ -36,7 +37,7 @@ body {
     padding: 0 20px;
 }
 
-/* Navbar e Logo (Sem bordas excessivas) */
+/* Navbar e Logo */
 .navbar {
     position: fixed;
     top: 0;
@@ -50,14 +51,11 @@ body {
     z-index: 1000;
 }
 
-.navbar .container {
-    width: 100%;
-}
-
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Garante que ocupa o container todo */
 }
 
 .logo {
@@ -98,6 +96,7 @@ body {
     padding: 8px 18px;
     border-radius: 6px;
     font-weight: 700;
+    transition: all 0.3s ease;
 }
 
 .btn-nav:hover {
@@ -109,7 +108,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 100px;
+    padding-top: 100px; /* Para compensar a navbar fixa */
     background: radial-gradient(circle at top right, rgba(185, 180, 118, 0.22) 0%, var(--bg-main) 65%);
 }
 
@@ -164,6 +163,8 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     text-align: center;
+    cursor: pointer;
+    border: none; /* Para garantir que botões <button> não tenham borda */
 }
 
 .btn-primary {
@@ -246,19 +247,6 @@ body {
 }
 
 /* Sobre e Foto do Personal */
-.img-box {
-    width: 100%;
-    height: 420px;
-    background: var(--bg-card);
-    border: 2px dashed var(--primary);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary);
-    font-weight: 600;
-}
-
 .sobre-img img {
     width: 100%;
     height: 420px;
@@ -292,6 +280,7 @@ body {
     border-radius: 0 12px 12px 0;
     color: var(--text-muted);
     box-shadow: 0 6px 18px rgba(15, 17, 21, 0.15);
+    margin: 25px 0; /* Adicionado espaçamento vertical */
 }
 
 .sobre-text blockquote strong {
@@ -340,8 +329,6 @@ body {
 
 /* Seção de Resultados (Antes e Depois) */
 #resultados .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     align-items: stretch;
 }
@@ -393,71 +380,6 @@ body {
     font-size: 0.9rem;
     color: var(--text-muted);
     line-height: 1.5;
-}
-
-/* Cards de Planos (caso use no futuro) */
-.price-card {
-    background: var(--bg-card);
-    padding: 40px 30px;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.price-card.featured {
-    border: 2px solid var(--primary);
-    transform: scale(1.03);
-}
-
-.tag-popular {
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--primary);
-    color: var(--dark-accent);
-    font-size: 0.75rem;
-    font-weight: 800;
-    padding: 4px 12px;
-    border-radius: 12px;
-}
-
-.price-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: var(--text-main);
-}
-
-.price {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 25px;
-    color: var(--primary);
-}
-
-.price span {
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-weight: 400;
-}
-
-.price-card ul {
-    list-style: none;
-    margin-bottom: 30px;
-    flex-grow: 1;
-}
-
-.price-card ul li {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border-color);
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.price-card .btn-primary {
-    width: 100%;
 }
 
 /* Footer */
@@ -515,20 +437,14 @@ body {
     transform: translateY(0);
 }
 
-/* Responsividade (Celulares e Tablets) */
+/* --- AJUSTE 2: Responsividade Aprimorada --- */
 @media (max-width: 768px) {
-    /* Mantém a logo e cria um botão de ação direto no topo do celular */
     .navbar {
         height: 75px;
     }
 
     .logo img {
         height: 56px;
-    }
-
-    .nav-links {
-        display: flex;
-        gap: 0;
     }
 
     /* Esconde apenas os links de texto, mantendo o botão principal visível */
@@ -579,9 +495,14 @@ body {
         font-size: 1.65rem;
     }
 
+    /* Força o grid a ser coluna única e gerencia o padding do container */
     .grid-2, .grid-3 {
         grid-template-columns: 1fr;
         gap: 25px;
+    }
+    
+    .container {
+        padding: 0 15px; /* Contêiner ligeiramente mais justo no mobile */
     }
 
     /* Foto do Personal sem cortar a cabeça no celular */
@@ -610,9 +531,5 @@ body {
     .btn-whatsapp {
         width: 100%;
         font-size: 1rem;
-    }
-
-    .price-card.featured {
-        transform: scale(1);
     }
 }
