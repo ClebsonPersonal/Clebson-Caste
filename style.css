@@ -12,7 +12,6 @@
     --border-color: rgba(185, 180, 118, 0.35); /* Bordas douradas translúcidas */
 }
 
-/* CORRIGIDO: era "-" e agora é "*" */
 * {
     margin: 0;
     padding: 0;
@@ -478,16 +477,6 @@ body {
     color: var(--text-muted);
 }
 
-@media (max-width: 768px) {
-    .audio-card {
-        padding: 30px 20px;
-    }
-
-    .audio-card blockquote {
-        font-size: 0.98rem;
-    }
-}
-
 /* Cards de Planos (Investimento) */
 .price-tables {
     display: grid;
@@ -724,6 +713,14 @@ body {
 
     .card {
         padding: 25px;
+    }
+
+    .audio-card {
+        padding: 30px 20px;
+    }
+
+    .audio-card blockquote {
+        font-size: 0.98rem;
     }
 
     .btn-whatsapp {
