@@ -313,11 +313,12 @@ body {
 #metodo blockquote {
     background: var(--bg-card);
     border-left: 4px solid var(--primary);
-    padding: 20px 25px;
+    padding: 22px 28px;
     border-radius: 0 12px 12px 0;
     color: var(--text-muted);
     box-shadow: 0 6px 18px rgba(15, 17, 21, 0.15);
-    margin-top: 25px;
+    margin: 30px auto 50px auto;
+    max-width: 800px;
     text-align: left;
 }
 
