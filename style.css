@@ -280,12 +280,12 @@ body {
 
 .sobre-img img {
     width: 100%;
-    max-width: 400px;        /* Limita a largura para não ficar gigantesca */
-    aspect-ratio: 3 / 4;     /* Garante formato vertical (3 de largura por 4 de altura) */
+    max-width: 400px;
+    aspect-ratio: 3 / 4;
     height: auto;
     object-fit: cover;
-    object-position: center top; /* Evita cortar a cabeça */
-    margin: 0 auto;          /* Centraliza na coluna */
+    object-position: center top;
+    margin: 0 auto;
     border-radius: 16px;
     border: 3px solid var(--primary);
     box-shadow: 0 12px 30px rgba(15, 17, 21, 0.25);
@@ -694,14 +694,6 @@ body {
     .grid-2, .grid-3, .price-tables {
         grid-template-columns: 1fr;
         gap: 25px;
-    }
-
-    /* Foto do Personal sem cortar a cabeça no celular */
-    .sobre-img img {
-        height: auto;
-        aspect-ratio: 3 / 4;
-        max-height: 420px;
-        object-position: center top;
     }
 
     /* Fotos de Antes e Depois no celular */
